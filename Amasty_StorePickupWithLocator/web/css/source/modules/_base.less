@@ -1,0 +1,380 @@
+//
+//  Amasty Store Pickup With Locator
+//  Base Styles
+//  ___________________________________________
+
+//
+//  Common
+//  -------------------------------------------
+
+& when (@media-common = true) {
+    .ampickup-store-container {
+        & {
+            display:    flex;
+            flex-wrap:  wrap;
+            margin-top: 15px;
+        }
+
+        &.-cart {
+            padding: 0;
+        }
+
+        .ampickup-field {
+            & {
+                width: 100%;
+            }
+
+            &:not(:last-of-type) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .ampickup-field select,
+        .ampickup-field input {
+            padding: 5px 10px;
+            height:  inherit;
+        }
+
+        .ampickup-field.-store .ampickup-wrapper {
+            display:        flex;
+            align-items:    center;
+            flex-direction: column;
+        }
+
+        .ampickup-field.-date .control {
+            display:   flex;
+            flex-wrap: wrap;
+        }
+
+        .ampickup-field.-date input {
+            flex: 1 1 80%;
+        }
+
+        .ampickup-field.-date .ui-datepicker-trigger {
+            max-width: 50px;
+            flex:      1 1 20%;
+        }
+
+        .ampickup-separator {
+            align-self: stretch;
+            margin:     5px 0;
+            width:      inherit;
+        }
+
+        .ampickup-choosemap {
+            & {
+                display:     inline-block;
+                margin:      0 auto 0 0;
+                color:       #000000;
+                border:      2px solid #000000;
+                background:  #ffffff;
+                padding:     4px 20px;
+                white-space: nowrap;
+                cursor:      pointer;
+            }
+        }
+
+        .label {
+            display:       inline-block;
+            margin-bottom: 8px;
+        }
+    }
+
+    .ampickup-details-container {
+        & {
+            margin-top:    15px;
+            margin-bottom: 15px;
+            flex:          1 1 100%;
+        }
+
+        .amlocator-location-info .amlocator-icon {
+            background-color: #000000;
+        }
+
+        .ampickup-title {
+            display: none;
+            margin:  0 0 15px 0;
+        }
+
+        div:empty,
+        div:empty + br {
+            display: none;
+        }
+
+        // Override Amasty OSC shipping address details width for store details
+        .amcheckout-step-container .amcheckout-shipping-address &.shipping-address-details {
+            width: 100%;
+        }
+    }
+
+    .ampickup-map-popup {
+        & {
+            position:        fixed;
+            top:             0;
+            left:            0;
+            z-index:         99999;
+            display:         flex;
+            align-items:     center;
+            justify-content: center;
+            width:           100vw;
+            height:          100vh;
+        }
+
+        .ampickup-overlay {
+            position:   absolute;
+            z-index:    1;
+            width:      100vw;
+            height:     100vh;
+            background: rgba(0, 0, 0, .5);
+        }
+
+        .ampickup-title {
+            display:       block;
+            margin-bottom: 15px;
+            font-size:     22px;
+        }
+
+        .amlocator-current-location {
+            .amlocator-text {
+                &:hover,
+                &:focus {
+                    border-color: #000000;
+
+                    + .amlocator-search {
+                        background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOC41IiBjeT0iOC41IiByPSI3LjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTEzIDE1LjEyMUwxNS4xMiAxM2w4LjY3NSA4LjY3NS0yLjEyMSAyLjEyeiIvPjwvc3ZnPg==") no-repeat center;
+                    }
+                }
+            }
+
+            .amlocator-search {
+                width:  24px;
+                height: 24px;
+
+                &:hover {
+                    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iOC41IiBjeT0iOC41IiByPSI3LjUiIHN0cm9rZT0iIzAwMDAwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTEzIDE1LjEyMUwxNS4xMiAxM2w4LjY3NSA4LjY3NS0yLjEyMSAyLjEyeiIvPjwvc3ZnPg==") no-repeat center;
+                }
+            }
+        }
+
+        .amlocator-range-slider {
+            background: #dadada;
+
+            .amlocator-handle {
+                background: #000000;
+
+                &:active,
+                &:focus,
+                &:hover {
+                    background: #777777;
+                }
+            }
+
+            .amlocator-tooltip {
+                background: #000000;
+
+                &:after {
+                    background: #000000;
+                }
+            }
+
+            .ui-slider-range {
+                background: #aaaaaa;
+            }
+        }
+
+        .amlocator-filters-container .amlocator-clear {
+            color: #000000;
+        }
+
+        .amlocator-main-container {
+            .amlocator-search-container {
+                .amlocator-button.-nearby {
+                    background:   #ffffff;
+                    color:        #000000;
+                    border-color: #000000;
+
+                    &:focus,
+                    &:hover {
+                        background: #000000;
+                        color:      #ffffff;
+                    }
+                }
+
+                .amlocator-block {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .amlocator-button {
+                background:    #000000;
+                border-color:  #000000;
+                border-radius: 0;
+
+                &.-pickup:hover,
+                &:hover {
+                    background:   #dddddd;
+                    border-color: #dddddd;
+                    color:        #000000;
+                    box-shadow:   none;
+                }
+            }
+
+            .amlocator-map-container .amlocator-map button {
+                box-shadow: none;
+            }
+
+            .amlocator-map-container .amlocator-map .gm-svpc div:nth-of-type(2) {
+                width:  100%;
+                height: 100%;
+            }
+
+            .amlocator-store-desc {
+                .amlocator-title {
+                    font-weight: normal;
+                }
+            }
+
+            .amlocator-store-desc.-active {
+                background: #000000;
+
+                .amlocator-button.-pickup {
+                    color: #000000;
+
+                    &:hover {
+                        background:   #dddddd;
+                        border-color: #000000;
+                    }
+                }
+
+                .amlocator-today {
+                    background: #dddddd;
+                }
+            }
+        }
+
+        .amlocator-schedule-container {
+            .amlocator-week {
+                margin:     0;
+                background: #dddddd;
+                color:      black;
+            }
+        }
+
+        .amlocator-schedule-table {
+            padding: 10px 13px 0 20px;
+
+            .amlocator-row {
+                margin-bottom:  0;
+                padding-bottom: 15px;
+            }
+        }
+
+        .amlocator-pager-container {
+            .pages {
+                text-align: center;
+
+                a.page {
+                    font-size: 1.2rem;
+                }
+
+                .current .page,
+                .page:hover {
+                    background: #000000;
+                    font-size:  1.2rem;
+                }
+
+                a.action {
+                    padding: 2px 6px;
+                }
+
+                a.action:hover {
+                    background: #000000;
+                }
+            }
+        }
+
+        .ampickup-content {
+            position:      relative;
+            z-index:       2;
+            overflow:      auto;
+            box-sizing:    border-box;
+            padding:       25px;
+            width:         90vw;
+            max-height:    95vh;
+            border-radius: 4px;
+            background:    #fff;
+        }
+
+        .ampickup-close {
+            & {
+                position: absolute;
+                top:      10px;
+                right:    10px;
+                width:    25px;
+                height:   25px;
+                opacity:  .3;
+                cursor:   pointer;
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+
+            &:before,
+            &:after {
+                position:         absolute;
+                left:             11px;
+                width:            2px;
+                height:           27px;
+                background-color: #333;
+                content:          ' ';
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(-45deg);
+            }
+        }
+
+        .amlocator-block.-map {
+            box-sizing: border-box;
+        }
+    }
+}
+
+//
+//  Tablet
+//  -------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .ampickup-store-container.-checkout {
+        .ampickup-field {
+            box-sizing: border-box;
+        }
+
+        .ampickup-field.-time {
+            padding-left: 10px;
+            width:        50%;
+        }
+
+        .ampickup-field.-date {
+            padding-right: 10px;
+            width:         50%;
+        }
+
+        .ampickup-field.-store .ampickup-wrapper {
+            flex-direction: row;
+        }
+
+        .ampickup-separator {
+            margin: 0 15px;
+        }
+    }
+
+    .ampickup-map-popup .ampickup-content {
+        width: 80vw;
+    }
+}

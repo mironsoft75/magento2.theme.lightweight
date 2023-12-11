@@ -1,0 +1,25 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Lightweight\Extra\Block\Catalog\Product\View\Gallery
+ */
+?>
+<?php
+    $images = $block->getOtherImages();
+?>
+<?php
+/**
+ * @todo: Magento 2 currently has a bug: It's not possible to resize images without keeping the frame.
+ *        Use $image->getImg() instead of $image->getFull() after the bug is fixed.
+ */
+?>
+<?php if(!empty($images)): ?>
+    <div class="product-images-bottom" id="product-images-bottom">
+        <?php foreach($images as $image): ?>
+            <img src="<?= $image->getFull()?>" title="<?= $image->getCaption(); ?>" alt="<?= $image->getCaption(); ?>" />
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>

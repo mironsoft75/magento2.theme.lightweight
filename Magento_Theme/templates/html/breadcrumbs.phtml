@@ -1,0 +1,51 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php if ($crumbs && is_array($crumbs)) : ?>
+    <?php
+    $jsonLd = [];
+    $i = 1;
+    ?>
+    <div class="breadcrumbs">
+        <ul class="items">
+            <?php foreach ($crumbs as $crumbName => $crumbInfo) : ?>
+                <li class="item <?= /* @escapeNotVerified */ $crumbName ?>">
+                <?php if ($crumbInfo['link']) : ?>
+                    <a href="<?= /* @escapeNotVerified */ $crumbInfo['link'] ?>" title="<?= $block->escapeHtml($crumbInfo['title']) ?>"><?= $block->escapeHtml($crumbInfo['label']) ?></a>
+                    <?php $jsonLd[] = '"@id":"' . $crumbInfo['link'] . '",' . PHP_EOL . '"name": "' . $block->escapeHtml($crumbInfo['label']) . '"'; ?>
+                <?php elseif ($crumbInfo['last']) : ?>
+                    <strong><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                    <?php $jsonLd[] = '"@id":"' . $block->getUrl('*/*/*', ['_current' => true, '_use_rewrite' => true]) . '",' . PHP_EOL . '"name": "' . $block->escapeHtml($crumbInfo['label']) . '"'; ?>
+                <?php else: ?>
+                    <?= $block->escapeHtml($crumbInfo['label']) ?>
+                    <?php $jsonLd[] = '"name": "' . $block->escapeHtml($crumbInfo['label']) . '"'; ?>
+                <?php endif; ?>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+    <script type="application/ld+json">
+    {
+         "@context": "http://schema.org",
+         "@type": "BreadcrumbList",
+         "itemListElement": [
+            <?php foreach ($jsonLd as $key => $item) : ?>
+            {
+                "@type": "ListItem",
+                "position": <?= $i++; ?>,
+                "item": {
+                    <?= $item ?>
+                }
+            }<?= !next($jsonLd) ? '' : ',' ?>
+        <?php endforeach; ?>
+         ]
+    }
+    </script>
+
+<?php endif; ?>

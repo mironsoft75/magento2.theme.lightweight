@@ -1,0 +1,20 @@
+{
+    "name": "lightweight/magento2.theme.lightweight",
+    "description": "Lightweight Theme",
+    "type": "magento2-theme",
+    "require": {
+        "lightweight/magento2.module.lightweight-extra": "^1.0"
+    },
+    "authors": [
+        {
+            "name": "Axel Bildat",
+            "email": "axel.bildat@7thsense.de",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ]
+    }
+}

@@ -1,0 +1,179 @@
+//  * Copyright © 7th Sense. All rights reserved.
+
+
+//
+//  Typography
+//  ---------------------------------------------
+
+//  Fonts
+// @font-family-name__base: 'Didact Gothic';
+
+@font-family-name__base: 'AvantGardeGothicITCW01M 731087';
+@font-family-name__light: 'AvantGardeGothicITCW01B 731069';
+@font-family-name__bold: 'AvantGardeGothicITCW01B 731063';
+@font-family-name__georgia:'Georgia W01 Italic';
+
+@font-family__base: @font-family-name__base, @font-family__sans-serif;
+@font-family__light: @font-family-name__light, @font-family__sans-serif;
+@font-family__bold: @font-family-name__bold, @font-family__sans-serif;
+@font-family__georgia: @font-family-name__georgia, @font-family__sans-serif;
+
+@font-size__h1: 45px;
+@font-size__h1_mobile: 26px;
+@font-size__xl: 16px;
+@font-size__l: 15px;
+@font-size__m: 14px;
+@font-size__base2: 13px;
+@font-size__base: 12px;
+@font-size__s: 10px;
+
+
+// Available Fonts
+// --- AvantGardeGothicITCW01B 731069
+// --- AvantGardeGothicITCW01M 731087
+// --- AvantGardeGothicITCW01B 731063
+// --- Georgia W01 Italic
+
+
+@link__hover__color: @color-lightweight-red;
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  h1 {
+    .lib-css(font-size, @h1__font-size-desktop);
+    .lib-css(margin-bottom, @h1__margin-bottom__desktop);
+  }
+
+}
+
+//
+//  Common
+//  __________________________________________________________________________________________
+
+& when (@media-common = true) {
+
+  body{
+    color: @color-lightweight-black;
+    font-size:1.4rem;
+    p, span, strong, a, i, label, h1, h2, h3, h4, h5{
+      font-weight:normal !important;
+    }
+    a:hover{
+      color:@color-lightweight-red;
+      text-decoration: none;
+    }
+  }
+  .items {
+    .lib-list-reset-styles();
+  }
+
+  ::selection {
+    background: @color-lightweight-red;
+    color:@color-white;
+  }
+  ::-moz-selection {
+    background: @color-lightweight-red;
+    color:@color-white;
+  }
+  h1{
+    font-family: @font-family__bold;
+  }
+  h2{
+    font-family: @font-family__bold;
+    letter-spacing: .1rem;
+  }
+  a{
+    font-size:1.2rem;
+  }
+  strong{
+    font-weight:normal;
+    font-family: @font-family__bold;
+  }
+  blockquote{
+    font-family: @font-family__light;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+    margin:0;
+  }
+  p.subheadline{
+    font-family: @font-family__light;
+  }
+
+}
+
+
+
+
+
+//
+//  Mobile
+//  __________________________________________________________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+  blockquote{
+    font-size:2.4rem;
+    line-height:4.1rem;
+  }
+
+  h1 {
+    .lib-css(font-size, 4rem);
+    .lib-css(line-height, 4.8rem);
+    .lib-css(margin-bottom, 1rem);
+  }
+  h2{
+    .lib-css(font-size, 2.6rem);
+    .lib-css(line-height, 3.6rem);
+    .lib-css(margin-bottom, 3rem);
+  }
+  p.subheadline{
+    font-size:1.4rem;
+    line-height: 1.66rem;
+  }
+  p{
+    line-height: 2.7rem;
+    font-size:1.5rem;
+  }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  h1 {
+    .lib-css(font-size, @font-size__h1_mobile);
+    .lib-css(line-height, 32px);
+    .lib-css(margin-bottom, 1rem);
+  }
+}
+
+
+//
+//  Desktop
+//  __________________________________________________________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  h1 {
+    .lib-css(font-size, 4rem);
+    .lib-css(line-height, 4.8rem);
+    .lib-css(margin-bottom, 1rem);
+  }
+  h2{
+    .lib-css(font-size, 2.6rem);
+    .lib-css(line-height, 3.6rem);
+    .lib-css(margin-bottom, 3rem);
+  }
+  blockquote{
+    font-size:3.8rem;
+    line-height:5.7rem;
+  }
+  p.subheadline{
+    font-size:1.8rem;
+    line-height: 1.66rem;
+  }
+  p{
+    line-height: 2.5rem;
+  }
+}
+
+

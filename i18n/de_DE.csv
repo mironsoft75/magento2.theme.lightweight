@@ -1,0 +1,33 @@
+"Sign In","Anmelden"
+"Create an Account","Ein Konto erstellen"
+"Search entire store here...","Wonach suchen Sie?"
+"You have no items in your shopping cart.","Sie haben keine Artikel im Warenkorb"
+"We use cookies to make your experience better.","Diese Website verwendet Cookies",module,Magento_Cookie
+"To comply with the new e-Privacy directive, we need to ask for your consent to set the cookies.","Wenn Sie der Cookie-Nutzung zustimmen, können wir unsere Inhalte nach Ihren Bedürfnissen gestalten. Jegliche Auswertung erfolgt anonymisiert. Mehr Informationen über Cookies und die Option, der Cookie-Verwendung zu widersprechen enthält unsere ",module,Magento_Cookie
+"<a href=""%1"">Learn more</a>.","<a href=""%1"">Datenschutzerklärung</a>.",module,Magento_Cookie
+"Allow Cookies","Verstanden & Akzeptiert",module,Magento_Cookie
+"Contact Us","Kontakt"
+"Shop","Shop"
+"Ship here","Hierhin verschicken"
+"This is a required field.","Dies ist ein Pflichtfeld."
+"Choose an Option...","Bitte wählen"
+"To the series","Zur Serie"
+"Data","Daten"
+"Handcrafted","Handgefertigt"
+"Available on","Verfügbar am"
+"Delivery time","Lieferzeit"
+"Cancel","Abbrechen",module,Magento_AdvancedCheckout
+"Cancel","Abbrechen",module,Magento_Catalog
+"Cancel","Abbrechen",module,Magento_Checkout
+
+"---------------------- AMASTY STORE PICKUP WITH LOCATOR ------------------------",""
+"Select a store to collect your order:","Wählen Sie einen Händler aus:"
+"Choose on map","Auf der Karte auswählen",module,Amasty_StorePickupWithLocator
+"Choose a Store","Händler auswählen"
+"Choose a store...","Bitte Händler wählen..."
+"Current location","Aktueller Standort"
+"Search Radius","Suchradius"
+"Locate Nearby","In Ihrer Nähe suchen"
+"Pick up here","Auswählen"
+"Please, choose a store where you would like to pick up your order","Bitte wählen Sie einen Händler, bei dem Sie Ihre Bestellung abholen möchten"
+"---------------------- AMASTY STORE PICKUP WITH LOCATOR END ------------------------",""

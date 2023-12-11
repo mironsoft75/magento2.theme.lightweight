@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page_layouts xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/PageLayout/etc/layouts.xsd">
+     <layout id="page-layout-2column-right">
+        <label translate="true">2 columns with right product details</label>
+    </layout>
+    <layout id="page-layout-404">
+        <label translate="true">1 column page 404</label>
+    </layout>
+</page_layouts>

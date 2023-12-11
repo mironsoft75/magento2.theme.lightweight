@@ -1,0 +1,331 @@
+//  * Copyright © 7thSense GmbH. All rights reserved.
+
+//
+//  Variables
+//  _____________________________________________
+
+@autocomplete__background-color: @color-white;
+@autocomplete__border: 1px solid @form-element-input__border-color;
+@autocomplete-item__border: 1px solid @color-gray90;
+@autocomplete-item__hover__color: @color-gray91;
+@autocomplete-item-amount__color: @color-gray60;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    .block-search {
+        margin-bottom: 0;
+
+        .block {
+            &-title {
+                display: none;
+            }
+        }
+
+        .block-content {
+            margin-bottom: 0;
+        }
+
+        .label {
+            .lib-icon-font(
+                @_icon-font: @icon-font-lw,
+                @_icon-font-content: @icon-search-lw,
+                @_icon-font-size: 23px,
+                @_icon-font-line-height: 39px,
+                @_icon-font-color: @header-icons-color,
+                @_icon-font-color-hover: @header-icons-color-hover,
+                @_icon-font-color-active: @header-icons-color-hover,
+                @_icon-font-text-hide: true
+            );
+            display: inline-block;
+            float:   right;
+
+            &.active {
+                + .control {
+                    input {
+                        position: static;
+                    }
+                }
+            }
+        }
+
+        .action.search {
+            display: none;
+        }
+
+        .control {
+            clear:   both;
+            padding: 0 @layout__width-xs-indent;
+        }
+
+        input {
+            margin:   15px 0;
+            position: absolute;
+            padding:  17px 10px;
+            color:    @color-white;
+        }
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* IE10+ CSS styles go here */
+            input {
+                padding: 0 15px;
+            }
+        }
+        .nested {
+            display: none;
+        }
+    }
+
+    .search-autocomplete {
+        &:extend(.abs-add-box-sizing all);
+        display:    none;
+        margin-top: -15px;
+        overflow:   hidden;
+        position:   absolute;
+        z-index:    3;
+
+        ul {
+            .lib-list-reset-styles();
+
+            li {
+                .lib-css(border-top, @autocomplete-item__border);
+                cursor:      pointer;
+                margin:      0;
+                padding:     @indent__xs @indent__xl @indent__xs @indent__s;
+                position:    relative;
+                text-align:  left;
+                white-space: normal;
+
+                &:not(:empty) {
+                    border-top: 0;
+                    .lib-css(border, @autocomplete__border);
+                    .lib-css(background, @autocomplete__background-color);
+                }
+
+                &:first-child {
+                    border-top: none;
+                }
+
+                &:hover,
+                &.selected {
+                    .lib-css(background, @autocomplete-item__hover__color);
+                }
+
+                .amount {
+                    .lib-css(color, @autocomplete-item-amount__color);
+                    position: absolute;
+                    right:    7px;
+                    top:      @indent__xs;
+                }
+            }
+        }
+    }
+
+    .form.search.advanced {
+        .fields.range {
+            .field {
+                &:first-child {
+                    position: relative;
+
+                    .control {
+                        padding-right: 25px;
+
+                        &:after {
+                            content:    ' \2013 ';
+                            display:    inline-block;
+                            position:   absolute;
+                            right:      0;
+                            text-align: center;
+                            top:        6px;
+                            width:      25px;
+                        }
+                    }
+                }
+
+                &:last-child {
+                    position: relative;
+
+                    div.mage-error[generated] {
+                        left:     0;
+                        position: absolute;
+                        top:      32px;
+                    }
+                }
+
+                &.with-addon {
+                    .control {
+                        padding-right: 45px;
+                    }
+                }
+            }
+        }
+
+        .group.price {
+            .addon {
+                .addafter {
+                    background:  none;
+                    border:      0;
+                    padding-top: 6px;
+                    position:    absolute;
+                    right:       0;
+                    top:         0;
+                }
+            }
+        }
+    }
+
+    .search.summary {
+        margin-bottom: @indent__s;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .block-search {
+        .block-content {
+            margin-bottom: 0;
+
+            form {
+                input {
+                    left: -1000000px;
+                }
+                &.active {
+                    input {
+                        left: 0;
+                    }
+                }
+            }
+        }
+
+        .label {
+            display: inline-block;
+            float:   right;
+            padding: 0;
+            &:hover {
+                cursor: pointer;
+            }
+            &:before {
+                font-size: 30px;
+            }
+
+        }
+
+        input {
+            .lib-input-placeholder(@form-element-input-placeholder__color);
+            text-transform: uppercase;
+            background:     none;
+            border:         2px solid @color-white;
+            font-family:    @font-family__bold;
+        }
+
+    }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .block-search {
+        clear:  both;
+        margin: 10px 0 0 0 !important;
+    }
+
+    .page-header {
+        .header.left {
+            width: 60% !important;
+        }
+        .header.right {
+            width: 40% !important;
+        }
+        .header.middle {
+            position: absolute;
+            top:      20px;
+            .logo {
+                width:    80px;
+                height:   60px;
+                overflow: hidden;
+                img {
+                    width: auto;
+                    height: auto;
+                    max-height: 100%;
+                    max-width: 100%;
+                }
+            }
+
+        }
+
+    }
+
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .block-search {
+        float:        right;
+        position:     relative;
+        width:        250px;
+        z-index:      4;
+
+        .label {
+            &:extend(.abs-visually-hidden-desktop all);
+        }
+
+        .control {
+            border-top: 0;
+            margin:     0;
+            padding:    0 0 25px;
+        }
+
+        .nested {
+            display:     block;
+            padding-top: 5px;
+            position:    absolute;
+        }
+
+        input {
+            .lib-input-placeholder(@form-element-input-placeholder__color);
+            text-transform: uppercase;
+            margin:         0;
+            padding-right:  35px;
+            position:       static;
+            background:     none;
+            border:         2px solid @color-white;
+            font-family:    @font-family__bold;
+            color:          @form-element-input-placeholder__color;
+        }
+
+        .action.search {
+            display:  inline-block;
+            opacity:  1;
+            .lib-button-icon(
+                @_icon-font: @icon-font-lw,
+                @_icon-font-content: @icon-search-lw,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @header-icons-color
+
+            );
+            .lib-button-reset();
+            padding:  @indent__xs 0;
+            position: absolute;
+            right:    10px;
+            top:      0;
+            z-index:  1;
+
+            &:focus {
+                &:before {
+                    .lib-css(color, @color-white);
+                }
+            }
+        }
+    }
+
+    .search-autocomplete {
+        margin-top: 0;
+    }
+}

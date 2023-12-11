@@ -1,0 +1,34 @@
+<?php // Get current product
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $block->getProduct();
+?>
+
+<?php if($product->getData('lw_size_chart')): ?>
+    <?php $staticBlockHtml = $block->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('size-extra-info')->toHtml(); ?>
+    <?php if($staticBlockHtml): ?>
+        <a href="#" id="size-extra-info_link" class="modal-trigger"><span class="entypo tag"></span> Welche Größe habe ich?</a>
+        <div id="size-extra-info_table">
+            <?= $staticBlockHtml; ?>
+        </div>
+        <script>
+            require(
+                [
+                    'jquery',
+                    'Magento_Ui/js/modal/modal'
+                ],
+                function($,modal) {
+                    var options = {
+                        type: 'popup',
+                        responsive: true,
+                        innerScroll: true,
+                        buttons: []
+                    };
+                    var popup = modal(options, $('#size-extra-info_table'));
+                    $("#size-extra-info_link").on("click",function(){
+                        $('#size-extra-info_table').modal('openModal');
+                    });
+                }
+            );
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

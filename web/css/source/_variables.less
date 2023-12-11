@@ -1,0 +1,108 @@
+//  * Copyright © 7th Sense. All rights reserved.
+
+//
+//  Luma theme variables
+//  _____________________________________________
+
+@font-family-name__base: 'AvantGardeGothicITCW01M 731087';
+@font-family-name__light: 'AvantGardeGothicITCW01B 731069';
+@font-family-name__bold: 'AvantGardeGothicITCW01B 731063';
+@font-family-name__georgia: 'Georgia W01 Italic';
+
+@font-family__base: @font-family-name__base, @font-family__sans-serif;
+@font-family__light: @font-family-name__light, @font-family__sans-serif;
+@font-family__bold: @font-family-name__bold, @font-family__sans-serif;
+@font-family__georgia: @font-family-name__georgia, @font-family__sans-serif;
+
+@font-size__large: 16px;
+@font-size__middle: 14px;
+@font-size__base: 12px;
+@font-size__s: 10px;
+
+//  Colors nesting
+@page__background-color: @color-white;
+
+.setUnderlineOnHover(@underlineColor, @underlineDistance) {
+    /** very important::: parent hast to have position > relative **/
+    &:after {
+        content:       '';
+        position:      absolute;
+        width:         100%;
+        height:        0;
+        left:          0;
+        bottom:        @underlineDistance;
+        border-bottom: 2px solid @underlineColor;
+    }
+}
+
+.transformLinkIntoIcon(@icon, @color, @size, @margin) {
+    &:before {
+        content:        @icon;
+        font-size:      @size;
+        font-family:    @icon-font-lw;
+        color:          @color;
+        vertical-align: middle;
+        margin:         @margin;
+    }
+    &:hover::before {
+        color: @color-lightweight-red;
+    }
+}
+
+.counterQuantityOnIcon(@right, @top) {
+    .counter.qty {
+        background-color: @color-lightweight-red;
+        padding:          0;
+        color:            @color-white;
+        border-radius:    100%;
+        position:         absolute;
+        height:           19px;
+        right:            @right;
+        top:              @top;
+        line-height:      19px;
+        width:            19px;
+        text-align:       center;
+        font-size:        11px;
+        opacity:          0;
+        transition: opacity 0.2s ease-out;
+        &:not(:empty) {
+            opacity: 1;
+        }
+
+        &.empty {
+            display: none;
+        }
+
+        .loader {
+            > img {
+                .lib-css(max-width, @minicart-qty__height);
+            }
+        }
+
+    }
+}
+
+.no-display {
+    display: none;
+}
+
+//
+//  Icons
+//  ---------------------------------------------
+
+@icon-calendar__font-size: 23px;
+@icons_font-size_s: 10px;
+@icons_font-size_m: 36px;
+@icons_font-size_l: 50px;
+
+//
+//  Sidebar
+//  ---------------------------------------------
+
+@sidebar__background-color: @color-white-smoke; // Used in cart sidebar, Checkout sidebar, Tier Prices, My account navigation, Rating block background
+
+//
+//  Sidebar blocks
+//  ---------------------------------------------
+
+@block-items__counter__color: @color-gray43;

@@ -1,0 +1,10 @@
+<?php // Get current product
+/** @var \Magento\Catalog\Model\Product $product */
+$product = $block->getProduct();
+
+?>
+<?php if($product->getData('lw_download')): ?>
+    <div class="downloads-tab-wrapper">
+        <?php echo $product->getData('lw_download'); ?>
+    </div>
+<?php endif; ?>

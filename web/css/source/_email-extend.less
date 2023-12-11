@@ -1,0 +1,106 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Email extend styles
+//  _____________________________________________
+
+//  This file should be used for theme-specific styles for emails that extend or modify the styles in _email.less
+//  This will allow you to edit email styles without copying and editing the _email.less file
+
+//  Custom fonts are declared here, rather than in _email-base.less, as it allows for custom fonts to be changed/removed
+//  in custom themes.
+
+//  Importing fonts from an external CSS file, rather than embedding @font-face declarations inside the <style> tag,
+//  as the latter will cause font rendering issues if the web fonts are inaccessible.
+
+@import url("@{baseUrl}css/email-fonts.css");
+
+.header {
+    text-align: center;
+    background-color: @color-lightweight-black;
+    padding: 15px;
+}
+
+.main-content {
+    font-size: 14px;
+    a {
+        font-size: 14px;
+    }
+
+    .address-details, .method-info {
+        p, dl {
+            font-size: 12px;
+        }
+    }
+    .email-summary {
+        h1 {
+            border-color: @color-lightweight-black;
+            font-size: 21px;
+        }
+    }
+
+    .email-items {
+        td {
+            border-top-color: @color-lightweight-black;
+        }
+        .item-options, .item-options dd, .item-info dl, .item-info dd {
+            padding-left: 0;
+        }
+    }
+
+    .order-totals {
+        th, td {
+            background-color: @color-lightweight-white;
+        }
+    }
+
+    .button {
+        td {
+            -webkit-border-radius: 0;
+            -moz-border-radius: 0;
+            border-radius: 0;
+            a {
+                background: @color-lightweight-red;
+                border: 1px solid @color-lightweight-red;
+                color: @color-lightweight-white;
+                text-transform: uppercase;
+                letter-spacing: 2.49px;
+                line-height: 14px;
+                font-family: @font-family-name__bold;
+                padding: 11px 20px;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: @color-lightweight-black;
+    color: @color-lightweight-white;
+    padding: 10px;
+
+    a {
+        color: @color-lightweight-white;
+    }
+
+    table {
+        width: 100%;
+        text-align: center;
+        td {
+            color: @color-lightweight-white;
+            padding: 5px;
+            min-width: 120px;
+            .hours {
+                margin-bottom: 10px;
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+        &:last-child {
+            margin-top: 15px;
+        }
+    }
+}

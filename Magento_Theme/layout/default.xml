@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Default layout here -->
+
+        <referenceContainer name="header-wrapper">
+            <container name="header.content.left" htmlClass="header left" htmlTag="div" before="header.content.middle">
+            </container>
+            <container name="header.content.middle" htmlClass="header middle" htmlTag="div" after="header.content.left">
+            </container>
+            <container name="header.content.right" htmlClass="header right" htmlTag="div" after="-">
+                <container name="header.content.right.search" htmlClass="header search" htmlTag="div" after="-">
+                </container>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="header.container">
+            <container name="page-header-after" htmlTag="div" htmlClass="header-after" after="-">
+                <block class="Magento\Framework\View\Element\Text" name="comment.placeholder">
+                    <arguments>
+                        <argument name="text" xsi:type="string"><![CDATA[<!-- -->]]></argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+
+        <referenceBlock name="top.links">
+            <block class="Magento\Customer\Block\Account\Link" name="my-account-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">My Account</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\AuthorizationLink" name="authorization-link"
+                   template="account/link/authorization.phtml">
+            </block>
+            <block class="Magento\Customer\Block\Account\RegisterLink" name="register-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Create an Account</argument>
+                </arguments>
+            </block>
+
+        </referenceBlock>
+
+
+
+
+        <!-- Move following elements -->
+        <move element="navigation.sections" destination="header.content.left" after="-" />
+        <move element="logo" destination="header.content.middle" after="-" />
+
+        <!-- Header right -->
+        <move element="header.links" destination="header.content.right" before="-" />
+
+        <move element="top.search" destination="header.content.right.search" after="-" />
+
+        <move element="compare-link-wrapper" destination="header.content.right.search" before="top.search" />
+        <move element="wish-list-link" destination="header.content.right.search" after="minicart" />
+        <move element="minicart" destination="header.content.right.search" before="-" />
+
+        <move element="store_language" destination="header.links" before="-" />
+
+
+
+
+
+        <!-- Footer rearrange -->
+
+        <referenceContainer name="footer">
+
+                <container name="footer.content-left" htmlTag="div" htmlClass="footer left" after="-">
+                    <block class="Magento\Cms\Block\Block" name="footer-lightweight-logo" after="-">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">footer_site_logo</argument>
+                        </arguments>
+                    </block>
+                </container>
+
+                <container name="footer.content-right" htmlTag="div" htmlClass="footer right" after="footer.content-left">
+                    <container name="footer.content-right-top" htmlTag="div" htmlClass="footer-right top">
+                        <container name="footer.content-payment" htmlTag="div" htmlClass="footer images payment">
+                            <block class="Magento\Cms\Block\Block" name="footer-payment">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">footer_payment_methods</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                        <container name="footer.content-shipping" htmlTag="div" htmlClass="footer images shipping" after="-">
+                            <block class="Magento\Cms\Block\Block" name="footer-shipping">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">footer_shipping_methods</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                    <container name="footer.content-right-bottom" htmlTag="div" htmlClass="footer-right bottom">
+                        <container name="footer.contact-data" htmlTag="div" htmlClass="footer footer-right left contact-data" before="-">
+                                <container name="footer.contact-left" htmlTag="div" htmlClass="footer contact-left">
+                                    <block class="Magento\Cms\Block\Block" name="footer-contact-data-left" after="-">
+                                        <arguments>
+                                            <argument name="block_id" xsi:type="string">footer_contact_data_left</argument>
+                                        </arguments>
+                                    </block>
+                                </container>
+                                <container name="footer.contact-right" htmlTag="div" htmlClass="footer contact-right" after="-">
+                                    <block class="Magento\Cms\Block\Block" name="footer-contact-data-right" after="-">
+                                        <arguments>
+                                            <argument name="block_id" xsi:type="string">footer_contact_data_right</argument>
+                                        </arguments>
+                                    </block>
+                                </container>
+                        </container>
+                        <container name="footer.middle" htmlTag="div" htmlClass="footer-right middle">
+                            <container name="footer.content-information" htmlTag="div" htmlClass="footer" after="-">
+                                <block class="Magento\Cms\Block\Block" name="footer-information">
+                                    <arguments>
+                                        <argument name="block_id" xsi:type="string">footer_information</argument>
+                                    </arguments>
+                                </block>
+                            </container>
+                        </container>
+                        <container name="footer.right" htmlTag="div" htmlClass="footer-right right" after="-">
+                            <container name="footer.content-social" htmlTag="div" htmlClass="footer images social">
+                                <block class="Magento\Cms\Block\Block" name="footer-social">
+                                    <arguments>
+                                        <argument name="block_id" xsi:type="string">footer_social</argument>
+                                    </arguments>
+                                </block>
+                            </container>
+                        </container>
+                    </container>
+                </container>
+        </referenceContainer>
+
+        <move element="copyright" destination="footer.content-right" after="-"/>
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceBlock name="form.subscribe" remove="true" />
+        <referenceBlock name="footer_links" remove="true" />
+    </body>
+</page>

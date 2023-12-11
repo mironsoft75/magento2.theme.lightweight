@@ -1,0 +1,83 @@
+//  * Copyright © 7thSense GmbH. All rights reserved.
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //  Using buttons mixins
+  button,
+  a.action.primary {
+    .lib-css(border-radius, 0);
+  }
+
+  button {
+    &:not(.primary) {
+      .lib-css(box-shadow, @button__shadow);
+
+      &:active {
+        .lib-css(box-shadow, @button__shadow-active);
+      }
+    }
+  }
+
+  body {
+    &:not(._keyfocus) {
+      button {
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  a.action.primary {
+    .lib-link-as-button();
+  }
+
+  .button-wrapper{
+    width:100%;
+    text-align: center;
+    padding: 15px 0;
+    .button{
+      padding:10px 10%;
+      background-color: @color-lightweight-red;
+      color:@color-white !important;
+      text-transform:uppercase;
+      letter-spacing: 2px;
+      text-align:center;
+      text-decoration: none;
+      transition: all 100ms ease-in-out;
+      max-width: 130px;
+      margin:0 auto;
+      &:hover{
+        background-color: darken(@color-lightweight-red,10%);
+      }
+    }
+  }
+
+
+
+  .action.search{
+    opacity:1 !important;
+    &:hover{
+      &:before{
+        color:@color-lightweight-red !important;
+      }
+    }
+  }
+
+  .action.primary {
+    .lib-button-primary();
+    text-transform:        uppercase !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius:    0;
+    border-radius:         0;
+    letter-spacing: 2.49px;
+    font-size: @font-size__base !important;
+    line-height: 14px;
+    font-family: @font-family-name__bold;
+    font-weight: initial;
+  }
+}

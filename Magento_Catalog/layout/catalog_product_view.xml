@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.media.image" remove="true" />
+        <move element="product.info.social" destination="product.info.main" after="product.actions"/>
+        <!--<move element="product.info.details" destination="product.info.main"  after="-"/>-->
+        <referenceContainer name="content">
+            <!--<container name="product.wrapper" htmlTag="div" htmlClass="product wrapper" before="-"/>-->
+            <container name="product.left" htmlTag="div" htmlClass="product left"/>
+            <container name="product.right" htmlTag="div" htmlClass="product right"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.lwtype" template="Magento_Catalog::product/view/attribute.phtml" before="product.info.price">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getLwProductType</argument>
+                    <argument name="at_code" xsi:type="string">lw_product_type</argument>
+                    <argument name="css_class" xsi:type="string">lw-product-type</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="at_type" xsi:type="string">text</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View" name="product.external.link.button" template="Magento_Catalog::product/view/external_link.phtml" after="product.info.lwtype" ifconfig="seventhsense_lightweight/general/show_external_link">
+                <arguments>
+                    <argument name="external_url" xsi:type="helper" helper="Lightweight\Extra\Helper\Data::getExternalLinkUrl"/>
+                    <argument name="button_text" xsi:type="helper" helper="Lightweight\Extra\Helper\Data::getExternalLinkText"/>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.options.wrapper">
+            <block class="Magento\Catalog\Block\Product\View" name="sizechart.link" template="Magento_Catalog::product/sizes_chart.phtml" before="-"/>
+        </referenceContainer>
+        <referenceContainer name="product.info.media">
+            <block class="Lightweight\Extra\Block\Catalog\Product\View\Gallery" name="product.info.media.image.main" template="Magento_Catalog::product/view/gallery.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="product.left">
+            <block class="Lightweight\Extra\Block\Catalog\Product\View\Gallery" name="product.info.media.bottom" template="Magento_Catalog::product/view/gallery_bottom.phtml" after="product.info.overview"/>
+        </referenceContainer>
+        <referenceBlock name="product.info.details">
+            <referenceBlock name="product.attributes">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Features</argument>
+                    <argument name="sort_order" xsi:type="string">10</argument>
+                </arguments>
+            </referenceBlock>
+            <referenceBlock name="product.info.description">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getShortDescription</argument>
+                    <argument name="at_code" xsi:type="string">short_description</argument>
+                    <argument name="sort_order" xsi:type="string">20</argument>
+                </arguments>
+            </referenceBlock>
+            <block class="Magento\Catalog\Block\Product\View" name="downloads.tab" template="Magento_Catalog::product/downloads_tab.phtml" group="detailed_info">
+                <arguments>
+                    <argument translate="true" name="title" xsi:type="string">Downloads</argument>
+                    <argument name="sort_order" xsi:type="string">30</argument>
+                </arguments>
+            </block>
+
+        </referenceBlock>
+        <referenceBlock name="product.info.main">
+            <referenceBlock name="product.info.overview">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getDescription</argument>
+                    <argument name="at_code" xsi:type="string">description</argument>
+                </arguments>
+            </referenceBlock>
+        </referenceBlock>
+        <referenceContainer name="product.info.stock.sku">
+            <container name="product.info.tax.outer" htmlTag="div" htmlClass="tax-notice" before="-">
+                <block class="Magento\Cms\Block\Block" name="product.info.tax" after="before">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">tax_notice</argument>
+                    </arguments>
+                </block>
+            </container>
+            <container name="product.info.type.outer" htmlTag="div" htmlClass="stock-info"></container>
+        </referenceContainer>
+        <referenceBlock name="reviews.tab" remove="true"/>
+        <referenceBlock name="product.review.form" remove="true"/>
+        <referenceBlock name="product.info.review" remove="true"/>
+        <referenceBlock name="product.info.mailto" remove="true"/>
+        <referenceBlock name="product.info.sku" remove="true"/>
+        <move element="product.info.stock.sku" destination="product.info.main" after="product.info.price"/>
+        <move element="product.info.simple" destination="product.info.type.outer" />
+        <move element="product.info.configurable" destination="product.info.type.outer" />
+        <move element="product.info.media" destination="product.left" before="-"/>
+        <move element="product.info.main" destination="product.right" before="-"/>
+        <move element="product.info.details" destination="product.right" after="product.info.main"/>
+        <move element="product.info.overview" destination="product.left" before="product.info.media.bottom"/>
+    </body>
+</page>

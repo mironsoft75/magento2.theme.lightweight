@@ -1,0 +1,136 @@
+//  * Copyright © 7thSense GmbH. All rights reserved.
+
+//--------------------------------------------------------------
+//----- Lightweight Colors
+//--------------------------------------------------------------
+@color-lightweight-red: #E12422;
+@color-lightweight-dark-red: #CE1E1C;
+@color-lightweight-dark-gray: #232323;
+@color-lightweight-light-gray: #B2B2B2;
+@color-lightweight-orange: #E69511;
+@color-lightweight-green: #26B912;
+@color-lightweight-black: #000000;
+@color-lightweight-white: #FFFFFF;
+@color-lightweight-footer: #AAAAAA;
+
+//
+//  Color variables
+//  _____________________________________________
+@color-gray-dark: #1D1D1B;
+@color-gray-light: #61615F;
+@color-white: #FFFFFF;
+@color-black: #000000;
+@color-gray: #979797;
+
+@color-gray-middle1: #979797;
+
+@color-white: #fff;
+@color-black: #000;
+
+@color-darkie-gray: #8a837f;
+@color-gray19: #303030;
+@color-gray20: #333333;
+@color-gray34: #575757;
+@color-gray37: #5E5E5E;
+@color-gray40: #666666;
+@color-gray43: #6D6D6D;
+@color-gray46: #757575;
+@color-gray52: #858585;
+@color-gray55: #8C8C8C;
+@color-gray56: #8F8F8F;
+@color-gray60: #999999;
+@color-gray62: #9E9E9E;
+@color-gray64: #A3A3A3;
+@color-gray68: #ADADAD;
+@color-gray76: #C2C2C2;
+@color-gray78: #C7C7C7;
+@color-gray79: #C9C9C9;
+@color-gray80: #CCCCCC;
+@color-gray82: #D1D1D1;
+@color-gray83: #D4D4D4;
+@color-gray89: #E3E3E3;
+@color-gray90: #E5E5E5;
+@color-gray91: #E8E8E8;
+@color-gray92: #EBEBEB;
+@color-gray94: #F0F0F0;
+@color-gray95: #F2F2F2;
+@color-gray_light: #CCCCCC;
+@color-lighter-grayish: #CACACA;
+@color-very-dark-gray: #666666;
+@color-white-smoke: #F5F5F5;
+@color-white-dark-smoke: #EFEFEF;
+@color-white-fog: #F8F8F8;
+
+@color-gray-light0: #F6F6F6;
+@color-gray-light01: #F4F4F4;
+@color-gray-light1: #E5EFE5;
+@color-gray-light2: #BBBBBB;
+@color-gray-light3: #AEAEAE;
+@color-gray-light4: #CECECE;
+@color-gray-light5: #C1C1C1;
+@color-gray-light6: #C5C5C5;
+
+@color-gray-middle1: #E4E4E4;
+@color-gray-middle2: #C6C6C6;
+@color-gray-middle3: #7E807E;
+@color-gray-middle4: #6E716E;
+@color-gray-middle5: #707070;
+
+@color-gray-darken0: #EEEEEE;
+@color-gray-darken1: #E2E2E2;
+@color-gray-darken2: #CDCDCD;
+@color-gray-darken3: #555555;
+@color-gray-darken4: #494949;
+
+@color-red9: #FF0101;
+@color-red10: #E02B27;
+@color-red11: #B30000;
+@color-red12: #D10029;
+
+@color-orange-red1: #FF5501;
+@color-orange-red2: #FF5601; // Legacy orange
+@color-orange-red3: #FF5700; // Legacy orange
+@color-orange-red4: #FC5E10; // Legacy orange
+
+@color-dark-green1: #006400;
+
+@color-blue1: #1979C3;
+@color-blue2: #006BB4;
+@color-blue3: #00699D;
+@color-sky-blue1: #68A8E0;
+
+@color-pink1: #FAE5E5;
+@color-dark-pink1: #800080; // Legacy pink
+
+@color-brownie: #514943;
+@color-brownie-vanilla: #736963;
+@color-brownie1: #6F4400;
+@color-brownie-light1: #C07600;
+
+@color-yellow-light1: #FDF0D5;
+@color-yellow-light2: #FFEE9C;
+@color-yellow-light3: #D6CA8E;
+@color-yellow1: #FFFF00;
+
+//
+//  Color nesting
+//  ---------------------------------------------
+
+@theme__color__primary: @color-blue1;
+@theme__color__primary-alt: @color-blue2;
+@theme__color__secondary: @color-orange-red1;
+
+@primary__color: @color-lightweight-black;
+@primary__color__dark: darken(@primary__color, 35%); // #000
+@primary__color__darker: darken(@primary__color, 13.5%); // #111
+@primary__color__lighter: lighten(@primary__color, 29%); // #7d7d7d
+@primary__color__light: lighten(@primary__color, 45%); // #a6a6a6
+
+@secondary__color: @color-gray91;
+@secondary__color__light: lighten(@secondary__color, 5%);
+
+@page__background-color: @color-white;
+@panel__background-color: darken(@page__background-color, 6%);
+
+@active__color: @color-lightweight-red;
+@error__color: @color-lightweight-red;

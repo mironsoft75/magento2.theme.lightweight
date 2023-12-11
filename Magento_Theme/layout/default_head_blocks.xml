@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+        <!-- Lightweight fonts -->
+        <link type="text/css" rel="stylesheet" src="//fast.fonts.net/cssapi/167f72f9-1a40-4b9b-93dc-ead9ac6516b6.css" src_type="url"/>
+        <script src="//fast.fonts.net/jsapi/167f72f9-1a40-4b9b-93dc-ead9ac6516b6.js" src_type="url"></script>
+
+        <css src="css/lw-icons-embedd.css" />
+
+        <!-- IE Compatibility -->
+        <meta name="x_ua_compatible" content="IE=edge"/>
+
+        <!-- Favicons -->
+        <link src="Magento_Theme::favicon.ico" rel="icon" sizes="16x16" />
+        <link src="Magento_Theme::apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+        <link src="Magento_Theme::apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60" />
+        <link src="Magento_Theme::apple-icon-72x72.png" rel="apple-touch-icon" sizes="72x72" />
+        <link src="Magento_Theme::apple-icon-76x76.png" rel="apple-touch-icon" sizes="76x76" />
+        <link src="Magento_Theme::apple-icon-114x114.png" rel="apple-touch-icon" sizes="114x114" />
+        <link src="Magento_Theme::apple-icon-120x120.png" rel="apple-touch-icon" sizes="120x120" />
+        <link src="Magento_Theme::apple-icon-144x144.png" rel="apple-touch-icon" sizes="144x144" />
+        <link src="Magento_Theme::apple-icon-152x152.png" rel="apple-touch-icon" sizes="152x152" />
+        <link src="Magento_Theme::apple-icon-180x180.png" rel="apple-touch-icon" sizes="180x180" />
+        <link src="Magento_Theme::android-icon-192x192.png" rel="icon" sizes="192x192" />
+        <link src="Magento_Theme::favicon-16x16.png" rel="icon" sizes="16x16" />
+        <link src="Magento_Theme::favicon-32x32.png" rel="icon" sizes="32x32" />
+        <link src="Magento_Theme::favicon-96x96.png" rel="icon" sizes="96x96" />
+
+    </head>
+</page>

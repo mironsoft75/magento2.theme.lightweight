@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer.wishlist.item.price">
+            <container htmlTag="div" htmlClass="tax-notice" name="customer.wishlist.item.price.tax.container">
+                <block class="Magento\Cms\Block\Block" name="customer.wishlist.item.price.tax" after="product.price.render.wishlist">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">tax_notice</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceBlock>
+    </body>
+</page>

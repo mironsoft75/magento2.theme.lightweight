@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php /* @var $block \Magento\Catalog\Block\Product\View\AbstractView */?>
+<?php $_product = $block->getProduct() ?>
+
+<?php if ($block->displayProductStockStatus()) :?>
+    <?php $_stockItem = $_product->getExtensionAttributes()->getStockItem(); ?>
+    <?php if ($_product->isAvailable()) :?>
+        <?php
+            $stockLow       = $_stockItem->getQty() <= $_stockItem->getNotifyStockQty();
+            $stockText      = $stockLow ? $block->escapeHtml(__('Low stock')) : $block->escapeHtml(__('In stock'));
+            $manageStock    = (bool)$_stockItem->getManageStock();
+            $lowIndicator   = $stockLow || (!$manageStock && (bool)$_product->getLwReplenishmentTime());
+            $content        = '';
+        ?>
+        <div class="stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+            <?php if(!in_array($_product->getTypeId(), [\Magento\ConfigurableProduct\Model\Product\Type\Configurable::TYPE_CODE])): ?>
+                <?php if($manageStock): ?>
+                    <span class="stock-notice available <?= $lowIndicator ? 'low' : ''?>"><?= $stockText ?></span>
+                <?php endif; ?>
+                <?php if($manageStock && $_product->getLwDeliveryTime()): ?>
+                    <?php
+                        if(!is_numeric($_product->getLwDeliveryTime())) {
+                            $content = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($_product->getLwDeliveryTime())->toHtml();
+                        }
+                    ?>
+                    <span class="stock-notice available <?= $lowIndicator ? 'low' : ''?>"><?= __('Delivery time') . ': '?><?= $content ? $content : $_product->getLwDeliveryTime() ?></span>
+                <?php elseif(!$manageStock && $_product->getLwReplenishmentTime()): ?>
+                    <?php
+                        if(!is_numeric($_product->getLwReplenishmentTime())) {
+                            $content = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($_product->getLwReplenishmentTime())->toHtml();
+                        }
+                    ?>
+                    <span class="stock-notice available <?= $lowIndicator ? 'low' : ''?>"><?= __('Delivery time') . ': '?><?= $content ? $content : $_product->getLwReplenishmentTime() ?></span>
+                <?php elseif(!$manageStock && $_product->getLwDeliveryTime()): ?>
+                    <?php
+                        if(!is_numeric($_product->getLwDeliveryTime())) {
+                            $content = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($_product->getLwDeliveryTime())->toHtml();
+                        }
+                    ?>
+                    <span class="stock-notice available <?= $lowIndicator ? 'low' : ''?>"><?= __('Delivery time') . ': '?><?= $content ? $content : $_product->getLwDeliveryTime() ?></span>
+                <?php endif; ?>
+            <?php endif; ?>
+            <?php if(!$manageStock && !$_product->getLwReplenishmentTime()): ?>
+                <?php $content = $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('product_handcrafted')->toHtml(); ?>
+                <?php if($content): ?>
+                    <?php $content = strip_tags($content, '<span><br><div><a><b><i><strong><em>'); ?>
+                    <span><?= $content; ?></span>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
+    <?php else :?>
+        <div class="stock" title="<?= $block->escapeHtmlAttr(__('Availability')) ?>">
+            <span class="stock-notice unavailable"><?= $block->escapeHtml(__('Out of stock')) ?></span>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
