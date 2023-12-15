@@ -35,7 +35,6 @@ var config = {
         'jquery/ui': 'jquery/jquery-ui'
     },
     deps: [
-        'jquery/jquery.mobile.custom',
         'mage/common',
         'mage/dataPost',
         'mage/bootstrap'
