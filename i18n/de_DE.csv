@@ -19,6 +19,7 @@
 "Cancel","Abbrechen",module,Magento_AdvancedCheckout
 "Cancel","Abbrechen",module,Magento_Catalog
 "Cancel","Abbrechen",module,Magento_Checkout
+"Show Password","Passwort anzeigen"
 
 "---------------------- AMASTY STORE PICKUP WITH LOCATOR ------------------------",""
 "Select a store to collect your order:","Wählen Sie einen Händler aus:"
